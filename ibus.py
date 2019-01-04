@@ -111,10 +111,10 @@ class UniEmojiIBusEngine(IBus.Engine):
                     self.commit_candidate()
                     return True
                 return False
-            elif keyval == IBus.Page_Up or keyval == IBus.KP_Page_Up:
+            elif keyval == IBus.Page_Up or keyval == IBus.KP_Page_Up or keyval == IBus.Left:
                 self.page_up()
                 return True
-            elif keyval == IBus.Page_Down or keyval == IBus.KP_Page_Down:
+            elif keyval == IBus.Page_Down or keyval == IBus.KP_Page_Down or keyval == IBus.Right:
                 self.page_down()
                 return True
             elif keyval == IBus.Up:
