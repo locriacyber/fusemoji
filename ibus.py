@@ -112,13 +112,13 @@ class UniEmojiIBusEngine(IBus.Engine):
                 self.invalidate()
                 return True
            elif keyval in num_keys:
-                index = num_keys.index(keyval) 
+                index = num_keys.index(keyval)
                 if self.set_lookup_table_cursor_pos_in_current_page(index):
                     self.commit_candidate()
                     return True
                 return False
             elif keyval in numpad_keys:
-                index = numpad_keys.index(keyval) 
+                index = numpad_keys.index(keyval)
                 if self.set_lookup_table_cursor_pos_in_current_page(index):
                     self.commit_candidate()
                     return True
