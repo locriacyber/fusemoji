@@ -124,6 +124,7 @@ class UniEmojiIBusEngine(IBus.Engine):
                     return True
                 return False
             elif keyval == IBus.Page_Up or keyval == IBus.KP_Page_Up or keyval == IBus.Left:
+
                 self.page_up()
                 return True
             elif keyval == IBus.Page_Down or keyval == IBus.KP_Page_Down or keyval == IBus.Right:
