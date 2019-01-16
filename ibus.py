@@ -46,6 +46,12 @@ for n in range(1, 10):
     num_keys.append(getattr(IBus, str(n)))
 num_keys.append(getattr(IBus, '0'))
 del n
+numpad_keys = []
+for n in range(1, 10):
+    numpad_keys.append(getattr(IBus, 'KP_'+str(n)))
+numpad_keys.append(getattr(IBus, 'KP_0'))
+del n
+
 
 ###########################################################################
 # the engine
@@ -91,7 +97,7 @@ class UniEmojiIBusEngine(IBus.Engine):
             return False
 
         if self.preedit_string:
-            if keyval == IBus.Return:
+            if keyval == IBus.Return or keyval == IBus.KP_Enter:
                 if self.lookup_table.get_number_of_candidates() > 0:
                     self.commit_candidate()
                 else:
@@ -106,12 +112,19 @@ class UniEmojiIBusEngine(IBus.Engine):
                 self.invalidate()
                 return True
             elif keyval in num_keys:
-                index = num_keys.index(keyval)
+                index = num_keys.index(keyval) 
                 if self.set_lookup_table_cursor_pos_in_current_page(index):
                     self.commit_candidate()
                     return True
                 return False
-             elif keyval == IBus.Page_Up or keyval == IBus.KP_Page_Up or keyval == IBus.Left:
+            elif keyval in numpad_keys:
+                index = numpad_keys.index(keyval) 
+                if self.set_lookup_table_cursor_pos_in_current_page(index):
+                    self.commit_candidate()
+                    return True
+                return False
+            elif keyval == IBus.Page_Up or keyval == IBus.KP_Page_Up or keyval == IBus.Left:
+
                 self.page_up()
                 return True
             elif keyval == IBus.Page_Down or keyval == IBus.KP_Page_Down or keyval == IBus.Right:
@@ -122,8 +135,6 @@ class UniEmojiIBusEngine(IBus.Engine):
                 return True
             elif keyval == IBus.Down:
                 self.cursor_down()
-                return True
-            elif keyval == IBus.Left or keyval == IBus.Right:
                 return True
 
         if keyval == IBus.space and len(self.preedit_string) == 0:
