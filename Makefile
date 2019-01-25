@@ -25,7 +25,6 @@ install: all
 	install -m 0644 ibus.py $(DESTDIR)$(DATADIR)/ibus-uniemoji
 	install -m 0644 uniemoji.xml $(DESTDIR)$(DATADIR)/ibus/component
 	install -m 0644 custom.json $(DESTDIR)$(SYSCONFDIR)/xdg/uniemoji
-	install -m 0644 kaomoji.json $(DESTDIR)$(SYSCONFDIR)/xdg/uniemoji
 
 uninstall:
 	rm -f $(DESTDIR)$(DATADIR)/ibus-uniemoji/uniemoji.svg
@@ -36,7 +35,6 @@ uninstall:
 	rm -f $(DESTDIR)$(DATADIR)/ibus-uniemoji/ibus.py
 	rmdir $(DESTDIR)$(DATADIR)/ibus-uniemoji
 	rm -f $(DESTDIR)$(SYSCONFDIR)/xdg/uniemoji/custom.json
-	rm -f $(DESTDIR)$(SYSCONFDIR)/xdg/uniemoji/kaomoji.json
 	rmdir $(DESTDIR)$(SYSCONFDIR)/xdg/uniemoji
 	rm -f $(DESTDIR)$(DATADIR)/ibus/component/uniemoji.xml
 
