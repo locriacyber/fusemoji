@@ -133,12 +133,12 @@ class UniEmojiChar(object):
         self.is_emojione = is_emojione
         self.is_custom = is_custom
         self.is_kaomoji = is_kaomoji
-
     def __repr__(self):
         return 'UniEmojiChar(unicode_str={}, is_emojione={}, is_custom={}, is_kaomoji={}, aliasing={})'.format(
             self.unicode_str,
             self.is_emojione,
             self.is_custom,
+            self.is_kaomoji,
             self.aliasing)
 
 
@@ -255,6 +255,7 @@ class UniEmoji():
                     debug(kaomoji_table)
                     for k, v in kaomoji_table.items():
                         self.table[k] = UniEmojiChar(v, is_kaomoji=True)
+
     def _filter(self, query, limit=100):
         if len(self.table) <= 10:
             # this only happens if something went wrong; it's our cheap way of displaying errors
