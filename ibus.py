@@ -46,18 +46,6 @@ for n in range(1, 10):
     num_keys.append(getattr(IBus, str(n)))
 num_keys.append(getattr(IBus, '0'))
 del n
-numpad_keys = []
-for n in range(1, 10):
-    numpad_keys.append(getattr(IBus, 'KP_'+str(n)))
-numpad_keys.append(getattr(IBus, 'KP_0'))
-del n
-
-
-numpad_keys = []
-for n in range(1, 10):
-    numpad_keys.append(getattr(IBus, 'KP_' + str(n)))
-numpad_keys.append(getattr(IBus, 'KP_0'))
-del n
 
 numpad_keys = []
 for n in range(1, 10):
@@ -124,7 +112,7 @@ class UniEmojiIBusEngine(IBus.Engine):
                 self.invalidate()
                 return True
             elif keyval in num_keys:
-                index = num_keys.index(keyval) 
+                index = num_keys.index(keyval)
                 if self.set_lookup_table_cursor_pos_in_current_page(index):
                     self.commit_candidate()
                     return True
