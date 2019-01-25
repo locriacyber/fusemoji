@@ -132,6 +132,7 @@ class UniEmojiChar(object):
         self.aliasing = []
         self.is_emojione = is_emojione
         self.is_custom = is_custom
+
     def __repr__(self):
         return 'UniEmojiChar(unicode_str={}, is_emojione={}, is_custom={}, aliasing={})'.format(
             self.unicode_str,
