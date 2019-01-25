@@ -137,7 +137,6 @@ class UniEmojiChar(object):
             self.unicode_str,
             self.is_emojione,
             self.is_custom,
-            self.is_kaomoji,
             self.aliasing)
 
 
@@ -234,7 +233,7 @@ class UniEmoji():
                     debug(custom_table)
                     for k, v in custom_table.items():
                         self.table[k] = UniEmojiChar(v, is_custom=True)
-                        
+
     def _filter(self, query, limit=100):
         if len(self.table) <= 10:
             # this only happens if something went wrong; it's our cheap way of displaying errors
