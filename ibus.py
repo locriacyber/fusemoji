@@ -123,12 +123,6 @@ class UniEmojiIBusEngine(IBus.Engine):
                     self.commit_candidate()
                     return True
                 return False
-            elif keyval in numpad_keys:
-                index = numpad_keys.index(keyval)
-                if self.set_lookup_table_cursor_pos_in_current_page(index):
-                    self.commit_candidate()
-                    return True
-                return False
             elif keyval in (IBus.Page_Up, IBus.KP_Page_Up, IBus.Left, IBus.KP_Left):
                 self.page_up()
                 return True
