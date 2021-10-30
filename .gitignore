@@ -1,5 +1,8 @@
 uniemoji.db
-uniemoji.xml
 config.py
 *~
 *.pyc
+build/
+.lock-waf*
+.vscode/
+__pycache__/
