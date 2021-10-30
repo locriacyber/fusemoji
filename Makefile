@@ -6,7 +6,7 @@ SYSCONFDIR ?= /etc
 DATADIR ?= $(PREFIX)/share
 DESTDIR ?=
 
-PYTHON ?= /usr/bin/python3
+PYTHON ?= $(which python)
 
 all: uniemoji.xml config.py
 
