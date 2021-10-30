@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import sys, os
 
 APPNAME = "uniemoji"
@@ -5,6 +6,7 @@ VERSION = "1.0"
 
 top = "."
 out = "build"
+
 
 def configure(ctx):
     ctx.log = True
@@ -20,27 +22,41 @@ How to install PyGObject: https://pygobject.readthedocs.io/en/latest/getting_sta
 
 
 def install_dependencies(ctx):
-    if ctx.exec_command("pipenv install", stdin=sys.stdin, stdout=sys.stdout, stderr=sys.stderr) != 0:
+    if (
+        ctx.exec_command(
+            "pipenv install", stdin=sys.stdin, stdout=sys.stdout, stderr=sys.stderr
+        )
+        != 0
+    ):
         ctx.fatal(pipenv_errormsg)
-    
 
-ibus_component_path = "/usr/share/ibus/component"
 
+ibus_component_directory = "/usr/share/ibus/component"
+ibus_component_path = "uniemoji.xml"
 
 def build(bld):
-    bld(
+    ibus_component = bld(
         rule=lambda buildctx: generate_ibus_config(bld.path.abspath(), buildctx),
         source="uniemoji.xml.in",
         target="uniemoji.xml",
     )
-    if not os.path.exists(ibus_component_path):
+    if not os.path.exists(ibus_component_directory):
         bld.fatal(
-            f"{ibus_component_path} doesn't exist. Maybe you need to install iBus first?"
+            f"{ibus_component_directory} doesn't exist. Maybe you need to install iBus first?"
         )
-    bld.symlink_as(f"{ibus_component_path}/uniemoji.xml", "uniemoji.xml")
+    bld.symlink_as(f"{ibus_component_directory}/{ibus_component_path}", os.path.abspath(f"{out}/{ibus_component_path}"))
 
 
 def generate_ibus_config(project_path, task):
     config = open(task.inputs[0].abspath()).read()
     config = config.replace("@PROJECTPATH@", project_path)
     open(task.outputs[0].abspath(), "w").write(config)
+
+
+def main():
+    os.chdir(os.path.dirname(__file__))
+    exit(os.system("./ibus.py --ibus"))
+
+
+if __name__ == "__main__":
+    main()
