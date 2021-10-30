@@ -1,23 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- filename: uniemoji.xml -->
 <component>
     <name>org.freedesktop.IBus.UniEmoji</name>
     <description>Unicode emoji and symbols by name</description>
     <version>0.4.0</version>
     <license>GPL</license>
     <author>Lalo Martins &lt;lalo.martins@gmail.com&gt;</author>
-    <homepage>https://github.com/salty-horse/ibus-uniemoji</homepage>
-    <exec>@PYTHON@ @DATADIR@/ibus-uniemoji/ibus.py --ibus</exec>
+    <homepage>https://github.com/locriacyber/uniemoji</homepage>
+    <exec>@PROJECTPATH@/run-ibus</exec>
     <textdomain>uniemoji</textdomain>
     <engines>
         <engine>
             <name>uniemoji</name>
             <longname>uniemoji</longname>
             <description>Unicode emoji and symbols by name</description>
-            <language></language>
+            <language>en</language> <!-- otherwise you can't find it -->
             <license>GPL</license>
-            <author>Lalo Martins &lt;lalo.martins@gmail.com&gt;</author>
-            <icon>@DATADIR@/ibus-uniemoji/uniemoji.svg</icon>
+            <icon>@PROJECTPATH@/uniemoji.svg</icon>
             <layout>us</layout>
             <layout_variant></layout_variant>
             <layout_option></layout_option>
