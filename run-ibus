@@ -1,0 +1,9 @@
+#!/usr/bin/fish
+set dir (dirname (status -f))
+cd $dir
+if ! test -e Pipfile.lock
+    echo "Not pipenv project or dependencies not installed"
+    echo "use `pipenv install` in project root to install dependencies"
+    exit 1
+end
+pipenv run python ibus.py --ibus
