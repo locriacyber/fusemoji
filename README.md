@@ -7,26 +7,14 @@ This simple input method for [ibus](https://github.com/ibus/ibus) allows you to 
 
 Since this is such a small project, there's no mailing list or website or anything. If you want automatic notification of new releases, you can use the Github releases feature; it even has a [feed](https://github.com/salty-horse/ibus-uniemoji/releases.atom).
 
-Dependencies
--------------
-
-Obviously:
-
-- ibus
-- python
-
-Less obviously:
-
-- the ibus gobject introspection information (on debian/ubuntu: gir1.2-ibus-1.0)
-
-Optional:
-
-- python-Levenshtein (`pip install python-Levenshtein`, also available as debian/ubuntu package python-levenshtein) makes fuzzy search faster
-
 Installing
 -----------
 
-To install, type `make install`. If your ibus isn't on /usr/share/ibus, or you want to install to /usr/local, you can pass any of `PREFIX`, `DATADIR`, and `SYSCONFDIR` to `make`. You can also pass `DESTDIR` to aid in packaging, or `PYTHON` to use a different Python executable.
+1. You need to place this repository somewhere and don't move it elsewhere
+2. Get [the build system `waf`](https://waf.io/book/): `curl -o waf https://waf.io/waf-2.0.20`
+3. Get `pipenv`
+4. `waf configure`
+5. `sudo waf install`
 
 Running
 --------

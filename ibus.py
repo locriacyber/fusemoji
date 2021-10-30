@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # UniEmoji: ibus engine for unicode emoji and symbols by name
 #
@@ -317,6 +317,8 @@ def main():
         else:
             print("Unknown argument: %s" % o, file=sys.stderr)
             print_help(sys.stderr, 1)
+    
+    print("uniemoji Started", file=sys.stderr)
 
     if daemonize:
         if os.fork():

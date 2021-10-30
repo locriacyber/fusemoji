@@ -6,14 +6,14 @@
     <license>GPL</license>
     <author>Lalo Martins &lt;lalo.martins@gmail.com&gt;</author>
     <homepage>https://github.com/locriacyber/uniemoji</homepage>
-    <exec>@PROJECTPATH@/run-ibus</exec>
+    <exec>@PROJECTPATH@/wscript</exec>
     <textdomain>uniemoji</textdomain>
     <engines>
         <engine>
             <name>uniemoji</name>
             <longname>uniemoji</longname>
             <description>Unicode emoji and symbols by name</description>
-            <language>en</language> <!-- otherwise you can't find it -->
+            <language></language>
             <license>GPL</license>
             <icon>@PROJECTPATH@/uniemoji.svg</icon>
             <layout>us</layout>
