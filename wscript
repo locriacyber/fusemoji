@@ -24,12 +24,18 @@ How to install PyGObject: https://pygobject.readthedocs.io/en/latest/getting_sta
 def install_dependencies(ctx):
     if (
         ctx.exec_command(
-            "pipenv install", stdin=sys.stdin, stdout=sys.stdout, stderr=sys.stderr
+            r'''python -c "__import__('gi')"''', stdin=sys.stdin, stdout=sys.stdout, stderr=sys.stderr
         )
         != 0
     ):
-        ctx.fatal(pipenv_errormsg)
-
+        ctx.fatal("PyGObject is not installed")
+    if (
+        ctx.exec_command(
+            r'''python -c "__import__('Levenshtein')"''', stdin=sys.stdin, stdout=sys.stdout, stderr=sys.stderr
+        )
+        != 0
+    ):
+        ctx.fatal("Python module 'levenshtine' is not installed")
 
 ibus_component_directory = "/usr/share/ibus/component"
 ibus_component_path = "uniemoji.xml"
