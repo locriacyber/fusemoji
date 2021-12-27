@@ -16,7 +16,7 @@
             <language></language>
             <license>GPL</license>
             <icon>@PROJECTPATH@/uniemoji.svg</icon>
-            <layout>us</layout>
+            <layout></layout>
             <layout_variant></layout_variant>
             <layout_option></layout_option>
             <hotkeys></hotkeys>
